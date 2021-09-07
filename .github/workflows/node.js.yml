@@ -30,3 +30,4 @@ jobs:
     - run: npm run build --if-present
     - run: npm test
     - run: HEROKU_API_KEY='ddf4a0e5-9294-4c5f-8820-b51c52fce4f9' heroku run ls --app mailing-service-app
+    - run: git push heroku master
