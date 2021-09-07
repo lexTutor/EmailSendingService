@@ -31,4 +31,4 @@ jobs:
       working-directory: MailingService
     - run: npm test
       working-directory: MailingService
-    - run: HEROKU_API_KEY='ddf4a0e5-9294-4c5f-8820-b51c52fce4f9' heroku run ls --app mailing-service-app
+    - run: HEROKU_API_KEY='095bb12b-f496-4ad8-b2c7-1b5f33d38116' heroku run ls --app mailing-service-app
