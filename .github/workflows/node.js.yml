@@ -32,5 +32,5 @@ jobs:
     - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
       with:
         heroku_api_key: "96db0e8b-311a-418d-a04e-2609d27d24a9"
-        heroku_app_name: "YOUR APP's NAME" #Must be unique in Heroku
-        heroku_email: "YOUR EMAIL"
+        heroku_app_name: "mailing-service-app " #Must be unique in Heroku
+        heroku_email: "angeloakuhwa@gmail.com"
