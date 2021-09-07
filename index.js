@@ -1,12 +1,11 @@
 const express = require("express");
 require("dotenv").config();
 require("./Database/Mongoosedb");
-const mailFormatRouters = require("../Src/Routers/MailFormatRouter");
+const mailFormatRouters = require("./Routers/MailFormatRouter");
 const userRouters = require("./Routers/UserRouter");
 const mailRouters = require("./Routers/MailRouter");
 const expressValidation = require("express-validation");
 const port = process.env.PORT;
-
 const app = express();
 
 //Helps parse the incoming json data
