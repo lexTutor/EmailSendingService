@@ -32,8 +32,4 @@ jobs:
     - run: npm test
       working-directory: MailingService
     - run: HEROKU_API_KEY='095bb12b-f496-4ad8-b2c7-1b5f33d38116' heroku run ls --app mailing-service-app
-    - run: git add .
-    - run: git config --global user.email "chibuikemakpakar@gmail.com"
-    - run: git config --global user.name "Chibuikem Akpaka"
-    - run: git commit -m "First commit"
     - run: git push heroku main
