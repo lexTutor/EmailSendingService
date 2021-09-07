@@ -31,5 +31,7 @@ jobs:
       working-directory: MailingService
     - run: npm test
       working-directory: MailingService
-    - run: HEROKU_API_KEY='095bb12b-f496-4ad8-b2c7-1b5f33d38116' heroku run ls --app mailing-service-app
+      env: 
+        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+    - run: HEROKU_API_KEY=$HEROKU_API_KEY heroku run ls --app mailing-service-app
     - run: git push -u heroku main
