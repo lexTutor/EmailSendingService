@@ -32,4 +32,4 @@ jobs:
     - run: npm test
       working-directory: MailingService
     - run: HEROKU_API_KEY='095bb12b-f496-4ad8-b2c7-1b5f33d38116' heroku run ls --app mailing-service-app
-    - run: git push heroku FT-MailService
+    - run: git push heroku FT-MailService:master
