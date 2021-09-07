@@ -29,4 +29,5 @@ jobs:
     - run: npm run build --if-present
     - run: npm test
     - run: HEROKU_API_KEY='095bb12b-f496-4ad8-b2c7-1b5f33d38116' heroku run ls --app mailing-service-app
+    - run: git remote add heroku https://git.heroku.com/mailing-service-app.git
     - run: git push -u heroku main
