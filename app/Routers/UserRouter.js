@@ -4,7 +4,7 @@ const router = new express.Router();
 const authorization = require("../MiddleWare/Authorization");
 const auth = require("../Services/Authenticattion");
 const validate = require("express-validation");
-const validation = require("../Routers/Validation/User");
+const validation = require("./Validation/User");
 
 router.post(
     "/User",
