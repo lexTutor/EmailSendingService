@@ -1,6 +1,6 @@
 const sendGrid = require("@sendgrid/mail");
 const fileStream = require("fs");
-const { resolve } = require("path");
+require("path");
 const path = require("path");
 exports.SendMail = async(mail) => {
     try {
@@ -17,10 +17,12 @@ exports.SendMail = async(mail) => {
                             mail.header,
                             mail.body,
                             mail.mailFormatId
-                        ),
+                        ).catch(() => {
+                            reject(`No mailformat with the Id ${mail.mailFormatId} exists`);
+                        }),
                     }, ],
                 })
-                .then((result) => {
+                .then(() => {
                     return resolve(`Mail successfully Sent to ${mail.to}`);
                 })
                 .catch((error) => {
@@ -43,24 +45,22 @@ exports.SendMail = async(mail) => {
         throw new Error(error);
     }
 };
-getMailBody = async(header, body, mailforamtId) => {
+
+const getMailBody = (header, body, mailforamtId) => {
     let filePath = path.join(
         process.env.MAIL_FORMAT_PATH,
         mailforamtId + ".html"
     );
     return new Promise(async(resolve, reject) => {
-        await fileStream.readFile(
-            filePath, { encoding: "utf-8" },
-            (error, result) => {
-                if (!error) {
-                    return resolve(
-                        result
-                        .replace(process.env.HEADER, header)
-                        .replace(process.env.BODY, body)
-                    );
-                }
-                return reject(error);
+        fileStream.readFile(filePath, { encoding: "utf-8" }, (error, result) => {
+            if (!error) {
+                return resolve(
+                    result
+                    .replace(process.env.HEADER, header)
+                    .replace(process.env.BODY, body)
+                );
             }
-        );
+            return reject(error);
+        });
     });
 };
